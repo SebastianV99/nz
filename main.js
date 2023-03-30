@@ -1,6 +1,6 @@
 let stop_lat = -44.71;
 let stop_lng = 169.16;
-let zoom = 13;
+let zoom = 6;
 let title = 'Wanaka';
 
 const STOPS = [
@@ -102,15 +102,15 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-L.marker([stop_lat, stop_lng]).addTo(map)
-    .bindPopup(title)
-    .openPopup();
+for (let stop of STOPS) {
 
-    for (let stop of STOPS) {
-        console.log(stop)
-        console.log(stop.title);
-        console.log(stop.user);
-        console.log(stop.lat);
-        console.log(stop.lng);
-        console.log(stop.wikipedia);
+    let marker = L.marker([stop.lat, stop.lng]);
+    marker.addTo(map);
+    marker.bindPopup(`<h3>${stop.title}</h3>
+    <a href = "${stop.wikipedia}"> Wikipedia </a>
+    `);
+    if (stop.user == "sebastianv99") {
+        marker.openPopup();
+        console.log("Mein Marker:", stop);
     }
+}

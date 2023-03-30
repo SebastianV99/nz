@@ -3,7 +3,13 @@ let stop_lng = 169.16;
 let zoom = 13;
 let title = 'Wanaka';
 
-const STOPS = ["Milford Sound","Wanaka","Fox Gletscher"];
+const STOPS = ["Milford Sound",{
+    title: "Wanaka", 
+    user: "sebastianv99"
+    lat: -44.71,
+    lng: 169.16,
+    Wikipedia: "https://de.wikipedia.org/wiki/Wanaka"
+},"Fox Gletscher"];
 console.log(STOPS);
 console.log(STOPS[0]);
 console.log(STOPS[1]);

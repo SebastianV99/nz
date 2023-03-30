@@ -3,6 +3,14 @@ let stop_lng = 169.16;
 let zoom = 13;
 let title = 'Wanaka';
 
+const STOPS = ["Milford Sound","Wanaka","Fox Gletscher"];
+console.log(STOPS);
+console.log(STOPS[0]);
+console.log(STOPS[1]);
+console.log(STOPS[2]);
+console.log(STOPS.length);
+
+
 
 let map = L.map('map').setView(stop_lat, stop_lng, zoom);
 

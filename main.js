@@ -98,24 +98,27 @@ console.log(STOPS);
 
 let map = L.map('map').setView([stop_lat, stop_lng], zoom);
 
-L.control.scale({ imperial: false, position: "topright" }).addTo(map);
+L.control.scale({ imperial: false, position: "bottomleft" }).addTo(map);
 
 let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-let watercolor= L.tileLayer.provider('Stamen.Watercolor').addTo(map);
-
+let watercolor = L.tileLayer.provider('Stamen.Watercolor').addTo(map);
+let Terrain = L.tileLayer.provider('Stamen.Terrain').addTo(map);
+let Streetmap = L.tileLayer.provider('Esri.WorldStreetMap').addTo(map);
 
 
 
 L.control.layers({
     "Openstreetmap": osm,
-    "Watercolor": watercolor
+    "Watercolor": watercolor,
+    "Terrain": Terrain,
+    "ESRI Streetmap": Streetmap
 }).addTo(map)
 
 for (let stop of STOPS) {
 
-    let marker = L.marker([stop.lat, stop.lng], { opacity: 0.7 });
+    let marker = L.marker([stop.lat, stop.lng], { opacity: 1 });
     marker.addTo(map);
     marker.bindPopup(`<h3>${stop.title}</h3>
     <a href = "${stop.wikipedia}"> Wikipedia </a>

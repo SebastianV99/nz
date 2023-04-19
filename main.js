@@ -93,11 +93,9 @@ const STOPS = [
     }];
 
 console.log(STOPS);
+let map = L.map('map').setView([stop_lat,stop_lng],zoom);
+map.addControl(new L.Control.Fullscreen());
 
-
-
-let map = L.map('map').setView([stop_lat, stop_lng], zoom); //map.addControl(new L.Control.Fullscreen());
-let fullscreen = L.control.fullscreen('fullscreen').addTo(map);
 L.control.scale({ imperial: false, position: "bottomleft" }).addTo(map);
 
 let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
